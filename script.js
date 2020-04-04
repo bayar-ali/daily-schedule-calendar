@@ -1,12 +1,11 @@
  
     var todayDate = document.querySelector("#currentDay")
-
-
-
     var textAreaEl = document.querySelector("#textArea");
     var saveButton = document.querySelector("#button");
     var saveButton1 = document.querySelector("#button1")
 
+
+    var text = localStorage.getItem("value","key"); 
 
     // the date 
 
@@ -19,7 +18,7 @@
     //
 
 
-    button1.onclick = function () {
+    saveButton1.onclick = function () {
         const key = button1.value;
 
         const value = textAreaEl.value;
@@ -27,10 +26,12 @@
         console.log(key)
         console.log(value)
 
+        localStorage.setItem("value",key)
+
         if (key && value) {
             localStorage.setItem(key, value);
             location.reload();
-        }
+        } 
     };
     
     saveButton.onclick = function () {
@@ -44,7 +45,7 @@
         if (key && value) {
             localStorage.setItem(key, value);
             location.reload();
-        }
+        } 
     };
 
     for (let i = 0; i < localStorage.length; i++) {
@@ -53,12 +54,12 @@
 
         const value = localStorage.getItem(key);
 
-        textAreaEl.innerHTML += `${key}; ${value}<br />`;
+      
 
-    } 
+    
 
 
-
+    }
 
 
 
